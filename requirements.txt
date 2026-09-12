@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+sentence-transformers
+pydub
+yt-dlp
+requests

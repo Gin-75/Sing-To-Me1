@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing To Me</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/editor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <h1>Sing to Me 🎵</h1>
+            <p>Say it with a song. Type what you feel.</p>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="e.g., I want to know if you still love me..." autocomplete="off">
+                <button id="search-btn">Find Song</button>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Searching for the perfect lyrics...</p>
+            </div>
+
+            <div id="results-container">
+                <!-- Results will be injected here -->
+            </div>
+            
+            <div id="clip-result-modal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Your Clip is Ready! 🎉</h2>
+                    <p id="clip-lyric-text" class="lyric-quote">""</p>
+                    <p id="clip-song-info" class="song-info"></p>
+                    
+                    <div class="clip-editor">
+                        <h4>Fine-tune Clip</h4>
+                        
+                        <div class="full-song-player-container" style="display: none;">
+                            <audio id="full-song-audio"></audio>
+                        </div>
+                        
+                        <!-- WhatsApp Style Slider UI -->
+                        <div class="wa-slider-container">
+                            <button id="play-pause-btn" class="play-btn">▶</button>
+                            <div class="slider-wrapper">
+                                <div id="audio-slider"></div>
+                                <div id="playhead" class="playhead"></div>
+                            </div>
+                            <div class="time-displays">
+                                <span id="start-time-display">0:00</span>
+                                <span id="end-time-display">0:00</span>
+                            </div>
+                        </div>
+
+                        <button id="apply-edits-btn" class="btn primary-btn" style="margin-top: 1.5rem; width: 100%;">Create New Clip</button>
+                    </div>
+
+                    <div class="audio-player-container" id="final-clip-container" style="display: none;">
+                        <h4>Your Final Clip:</h4>
+                        <audio id="clip-audio" controls></audio>
+                        <a id="download-btn" class="btn primary-btn" href="#" download="sing-to-me-clip.mp3" style="margin-top: 1rem;">Download / Share</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
